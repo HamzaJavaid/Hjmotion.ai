@@ -1,0 +1,93 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Publishing ready preview card icon">
+
+  <defs>
+    <radialGradient id="tealGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2EF7EA" stop-opacity="0.85"/>
+      <stop offset="45%" stop-color="#1CDAD0" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#1CDAD0" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8C75B" stop-opacity="0.75"/>
+      <stop offset="52%" stop-color="#D9AE3B" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#D9AE3B" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="tealStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2EF7EA" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#1FB9B4" stop-opacity="0.52"/>
+      <stop offset="100%" stop-color="#E8C75B" stop-opacity="0.72"/>
+    </linearGradient>
+
+    <linearGradient id="softGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2EF7EA" stop-opacity="0.22"/>
+      <stop offset="48%" stop-color="#2EF7EA" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#E8C75B" stop-opacity="0.18"/>
+    </linearGradient>
+
+    <filter id="blurGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0.12
+                0 0 0 0 0.96
+                0 0 0 0 0.90
+                0 0 0 0.55 0" result="colorBlur"/>
+      <feMerge>
+        <feMergeNode in="colorBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="goldBlur" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0.90
+                0 0 0 0 0.72
+                0 0 0 0 0.24
+                0 0 0 0.48 0" result="colorBlur"/>
+      <feMerge>
+        <feMergeNode in="colorBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softShadow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" fill="none"/>
+
+  <!-- ambient glow -->
+  <ellipse cx="286" cy="214" rx="158" ry="126" fill="url(#tealGlow)" opacity="0.24"/>
+  <ellipse cx="284" cy="232" rx="112" ry="88" fill="url(#goldGlow)" opacity="0.18"/>
+
+  <!-- preview card -->
+  <rect x="122" y="104" width="268" height="176" rx="34"
+        fill="rgba(34,230,223,0.08)" stroke="#2EF7EA" stroke-opacity="0.38" stroke-width="2"
+        filter="url(#softShadow)"/>
+  <rect x="136" y="118" width="240" height="148" rx="25"
+        fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- play glow and triangle -->
+  <circle cx="256" cy="192" r="58" fill="url(#goldGlow)" opacity="0.52"/>
+  <path d="M239 156L303 192L239 228V156Z"
+        fill="#E8C75B" filter="url(#goldBlur)"/>
+  <path d="M239 156L303 192L239 228V156Z"
+        fill="#2EF7EA" opacity="0.22"/>
+
+  <!-- metadata / publishing bars -->
+  <g filter="url(#softShadow)">
+    <rect x="116" y="322" width="124" height="24" rx="12" fill="#2EF7EA" opacity="0.38"/>
+    <rect x="258" y="322" width="138" height="24" rx="12" fill="#BFFDF8" opacity="0.12"/>
+
+    <rect x="116" y="370" width="96" height="22" rx="11" fill="#E8C75B" opacity="0.38"/>
+    <rect x="232" y="370" width="164" height="22" rx="11" fill="#2EF7EA" opacity="0.13"/>
+
+    <rect x="116" y="418" width="138" height="22" rx="11" fill="#E8C75B" opacity="0.28"/>
+    <rect x="274" y="418" width="122" height="22" rx="11" fill="#BFFDF8" opacity="0.10"/>
+  </g>
+
+  <!-- subtle frame detail -->
+  <path d="M152 280H360" stroke="#2EF7EA" stroke-opacity="0.18" stroke-width="2" stroke-linecap="round"/>
+</svg>

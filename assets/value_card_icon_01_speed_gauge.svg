@@ -1,0 +1,101 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Creative speed gauge icon">
+
+  <defs>
+    <radialGradient id="tealGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2EF7EA" stop-opacity="0.85"/>
+      <stop offset="45%" stop-color="#1CDAD0" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#1CDAD0" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8C75B" stop-opacity="0.75"/>
+      <stop offset="52%" stop-color="#D9AE3B" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#D9AE3B" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="tealStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2EF7EA" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#1FB9B4" stop-opacity="0.52"/>
+      <stop offset="100%" stop-color="#E8C75B" stop-opacity="0.72"/>
+    </linearGradient>
+
+    <linearGradient id="softGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2EF7EA" stop-opacity="0.22"/>
+      <stop offset="48%" stop-color="#2EF7EA" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#E8C75B" stop-opacity="0.18"/>
+    </linearGradient>
+
+    <filter id="blurGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="16" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0.12
+                0 0 0 0 0.96
+                0 0 0 0 0.90
+                0 0 0 0.55 0" result="colorBlur"/>
+      <feMerge>
+        <feMergeNode in="colorBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="goldBlur" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0.90
+                0 0 0 0 0.72
+                0 0 0 0 0.24
+                0 0 0 0.48 0" result="colorBlur"/>
+      <feMerge>
+        <feMergeNode in="colorBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softShadow" x="-60%" y="-60%" width="220%" height="220%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" fill="none"/>
+
+  <!-- ambient glow -->
+  <circle cx="256" cy="266" r="168" fill="url(#tealGlow)" opacity="0.28"/>
+  <circle cx="338" cy="180" r="110" fill="url(#goldGlow)" opacity="0.22"/>
+
+  <!-- outer soft gauge ring -->
+  <path d="M126 306C126 234.203 184.203 176 256 176C327.797 176 386 234.203 386 306"
+        stroke="#2EF7EA" stroke-opacity="0.16" stroke-width="26" stroke-linecap="round"/>
+
+  <!-- segmented ring -->
+  <path d="M126 306C126 265.5 144.6 229.3 173.7 205.5"
+        stroke="#2EF7EA" stroke-opacity="0.45" stroke-width="12" stroke-linecap="round" filter="url(#blurGlow)"/>
+  <path d="M197.5 190.2C215.1 181 235 176 256 176C279.8 176 302.1 182.4 321.2 193.5"
+        stroke="#2EF7EA" stroke-opacity="0.28" stroke-width="12" stroke-linecap="round"/>
+  <path d="M337.4 206.8C367 230.6 386 267.1 386 306"
+        stroke="#E8C75B" stroke-opacity="0.58" stroke-width="12" stroke-linecap="round" filter="url(#goldBlur)"/>
+
+  <!-- subtle inner rings -->
+  <path d="M166 306C166 256.294 206.294 216 256 216C305.706 216 346 256.294 346 306"
+        stroke="#BFFDF8" stroke-opacity="0.08" stroke-width="2"/>
+  <path d="M100 306C100 219.844 169.844 150 256 150C342.156 150 412 219.844 412 306"
+        stroke="#2EF7EA" stroke-opacity="0.08" stroke-width="2"/>
+
+  <!-- tick marks -->
+  <g stroke="#BFFDF8" stroke-opacity="0.32" stroke-width="4" stroke-linecap="round">
+    <path d="M154 303H132"/>
+    <path d="M180.7 239.5L164.7 223.5"/>
+    <path d="M256 208V184"/>
+    <path d="M331.3 239.5L347.3 223.5"/>
+    <path d="M358 303H380"/>
+  </g>
+
+  <!-- needle -->
+  <g filter="url(#blurGlow)">
+    <path d="M256 306L354 208" stroke="url(#tealStroke)" stroke-width="9" stroke-linecap="round"/>
+    <path d="M256 306L354 208" stroke="#E8C75B" stroke-opacity="0.22" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- center hub -->
+  <circle cx="256" cy="306" r="22" fill="#0A1E22" stroke="#2EF7EA" stroke-opacity="0.68" stroke-width="2" filter="url(#softShadow)"/>
+  <circle cx="256" cy="306" r="12" fill="#2EF7EA" filter="url(#blurGlow)"/>
+</svg>

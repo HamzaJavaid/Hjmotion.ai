@@ -1,0 +1,79 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Edit first cut play timeline icon">
+
+  <defs>
+    <radialGradient id="tealGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2EF7EA" stop-opacity="0.82"/>
+      <stop offset="48%" stop-color="#1CDAD0" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#1CDAD0" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8C75B" stop-opacity="0.75"/>
+      <stop offset="52%" stop-color="#D9AE3B" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#D9AE3B" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="tealGoldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2EF7EA" stop-opacity="0.95"/>
+      <stop offset="62%" stop-color="#22D6CE" stop-opacity="0.62"/>
+      <stop offset="100%" stop-color="#E8C75B" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <linearGradient id="glassFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2EF7EA" stop-opacity="0.18"/>
+      <stop offset="50%" stop-color="#2EF7EA" stop-opacity="0.055"/>
+      <stop offset="100%" stop-color="#E8C75B" stop-opacity="0.13"/>
+    </linearGradient>
+
+    <filter id="tealShadow" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#2EF7EA" flood-opacity="0.34"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="24" flood-color="#2EF7EA" flood-opacity="0.16"/>
+    </filter>
+
+    <filter id="goldShadow" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="0" stdDeviation="9" flood-color="#E8C75B" flood-opacity="0.34"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="22" flood-color="#E8C75B" flood-opacity="0.14"/>
+    </filter>
+
+    <filter id="softShadow" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" fill="none"/>
+
+  <circle cx="256" cy="256" r="176" fill="url(#tealGlow)" opacity="0.20"/>
+  <circle cx="276" cy="252" r="108" fill="url(#goldGlow)" opacity="0.14"/>
+
+  <!-- preview frame -->
+  <rect x="138" y="160" width="236" height="150" rx="28"
+        fill="url(#glassFill)" stroke="#2EF7EA" stroke-opacity="0.68" stroke-width="4"
+        filter="url(#softShadow)"/>
+
+  <!-- play -->
+  <path d="M235 202L306 235L235 268V202Z" fill="#2EF7EA" opacity="0.82" filter="url(#tealShadow)"/>
+  <path d="M235 202L306 235L235 268V202Z" fill="#E8C75B" opacity="0.22"/>
+
+  <!-- timeline tracks -->
+  <g stroke-linecap="round" filter="url(#tealShadow)">
+    <path d="M88 360H188" stroke="#2EF7EA" stroke-width="8" opacity="0.46"/>
+    <path d="M208 360H304" stroke="#E8C75B" stroke-width="8" opacity="0.48"/>
+    <path d="M324 360H424" stroke="#2EF7EA" stroke-width="8" opacity="0.46"/>
+  </g>
+
+  <!-- cuts / markers -->
+  <g stroke="#BFFDF8" stroke-opacity="0.48" stroke-width="5" stroke-linecap="round">
+    <path d="M176 334V386"/>
+    <path d="M256 334V386"/>
+    <path d="M336 334V386"/>
+  </g>
+
+  <!-- audio wave accents -->
+  <g stroke="#E8C75B" stroke-opacity="0.55" stroke-width="4" stroke-linecap="round">
+    <path d="M98 238V218"/>
+    <path d="M120 250V206"/>
+    <path d="M414 238V218"/>
+    <path d="M392 250V206"/>
+  </g>
+
+</svg>

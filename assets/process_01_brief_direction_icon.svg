@@ -1,0 +1,70 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Brief direction target icon">
+
+  <defs>
+    <radialGradient id="tealGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2EF7EA" stop-opacity="0.82"/>
+      <stop offset="48%" stop-color="#1CDAD0" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#1CDAD0" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8C75B" stop-opacity="0.75"/>
+      <stop offset="52%" stop-color="#D9AE3B" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#D9AE3B" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="tealGoldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2EF7EA" stop-opacity="0.95"/>
+      <stop offset="62%" stop-color="#22D6CE" stop-opacity="0.62"/>
+      <stop offset="100%" stop-color="#E8C75B" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <linearGradient id="glassFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2EF7EA" stop-opacity="0.18"/>
+      <stop offset="50%" stop-color="#2EF7EA" stop-opacity="0.055"/>
+      <stop offset="100%" stop-color="#E8C75B" stop-opacity="0.13"/>
+    </linearGradient>
+
+    <filter id="tealShadow" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#2EF7EA" flood-opacity="0.34"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="24" flood-color="#2EF7EA" flood-opacity="0.16"/>
+    </filter>
+
+    <filter id="goldShadow" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="0" stdDeviation="9" flood-color="#E8C75B" flood-opacity="0.34"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="22" flood-color="#E8C75B" flood-opacity="0.14"/>
+    </filter>
+
+    <filter id="softShadow" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000000" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" fill="none"/>
+
+  <circle cx="256" cy="256" r="178" fill="url(#tealGlow)" opacity="0.18"/>
+  <circle cx="226" cy="286" r="92" fill="url(#goldGlow)" opacity="0.16"/>
+
+  <!-- focus brackets -->
+  <g stroke="#2EF7EA" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.62" filter="url(#tealShadow)">
+    <path d="M116 184V130H170"/>
+    <path d="M342 130H396V184"/>
+    <path d="M396 328V382H342"/>
+    <path d="M170 382H116V328"/>
+  </g>
+
+  <!-- target rings -->
+  <g filter="url(#softShadow)">
+    <circle cx="256" cy="256" r="98" stroke="url(#tealGoldStroke)" stroke-width="6" opacity="0.72"/>
+    <circle cx="256" cy="256" r="58" stroke="#BFFDF8" stroke-width="4" opacity="0.26"/>
+    <circle cx="256" cy="256" r="24" fill="rgba(232,199,91,0.18)" stroke="#E8C75B" stroke-width="5" opacity="0.84"/>
+    <circle cx="256" cy="256" r="8" fill="#E8C75B" filter="url(#goldShadow)"/>
+  </g>
+
+  <!-- input/reference lines -->
+  <g stroke="#2EF7EA" stroke-opacity="0.34" stroke-width="6" stroke-linecap="round">
+    <path d="M174 356H338"/>
+    <path d="M198 386H314"/>
+  </g>
+
+</svg>
