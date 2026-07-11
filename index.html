@@ -651,7 +651,6 @@ body:before{background:
   gap:var(--portfolio-gap);
   width:max-content;
   transform:translate3d(var(--portfolio-scroll,0px),0,0);
-  transition:transform .18s ease-out;
   will-change:transform;
 }
 .portfolio-row.vertical-row{top:0}
@@ -1814,6 +1813,10 @@ body.contact-modal-open .contact-modal{
       const portfolioStage = portfolioRail.querySelector('.portfolio-stage');
       if (portfolioStage) {
         const rowOffsets = new WeakMap();
+        let activePortfolioRow = null;
+        let portfolioPointerRatio = 0;
+        let portfolioRaf = 0;
+        let lastPortfolioFrame = 0;
         const normalizeOffset = (value, loopWidth) => {
           if (!loopWidth) return value;
           let next = value;
@@ -1821,24 +1824,54 @@ body.contact-modal-open .contact-modal{
           while (next < -loopWidth) next += loopWidth;
           return next;
         };
-        const movePortfolioRow = (row, wheelDelta) => {
+        const movePortfolioRow = (row, distance) => {
           const track = row.querySelector('.portfolio-track');
           if (!track) return;
           const loopWidth = track.scrollWidth / 2;
           const current = rowOffsets.get(row) || 0;
-          const limitedDelta = Math.max(-180, Math.min(180, wheelDelta));
-          const next = normalizeOffset(current - limitedDelta, loopWidth);
+          const next = normalizeOffset(current - distance, loopWidth);
           rowOffsets.set(row, next);
           row.style.setProperty('--portfolio-scroll', next.toFixed(2) + 'px');
         };
-        portfolioStage.addEventListener('wheel', (event) => {
+        const stopPortfolioCursorBrowse = () => {
+          activePortfolioRow = null;
+          portfolioPointerRatio = 0;
+          lastPortfolioFrame = 0;
+          if (portfolioRaf) cancelAnimationFrame(portfolioRaf);
+          portfolioRaf = 0;
+        };
+        const animatePortfolioCursorBrowse = (time) => {
+          if (!activePortfolioRow) {
+            portfolioRaf = 0;
+            lastPortfolioFrame = 0;
+            return;
+          }
+          const elapsed = lastPortfolioFrame ? Math.min(48, time - lastPortfolioFrame) : 16;
+          lastPortfolioFrame = time;
+          const deadZone = 0.14;
+          const intensity = Math.abs(portfolioPointerRatio);
+          if (intensity > deadZone) {
+            const direction = Math.sign(portfolioPointerRatio);
+            const eased = (intensity - deadZone) / (1 - deadZone);
+            movePortfolioRow(activePortfolioRow, direction * eased * 0.55 * elapsed);
+          }
+          portfolioRaf = requestAnimationFrame(animatePortfolioCursorBrowse);
+        };
+        portfolioStage.addEventListener('mousemove', (event) => {
           const activeRow = event.target.closest('.portfolio-row');
-          if (!activeRow || !portfolioStage.contains(activeRow)) return;
-          event.preventDefault();
-          const wheelDelta = Math.abs(event.deltaY) >= Math.abs(event.deltaX) ? event.deltaY : event.deltaX;
-          movePortfolioRow(activeRow, wheelDelta);
-        }, { passive: false });
+          if (!activeRow || !portfolioStage.contains(activeRow)) {
+            activePortfolioRow = null;
+            portfolioPointerRatio = 0;
+            return;
+          }
+          const stageRect = portfolioStage.getBoundingClientRect();
+          const cursorX = (event.clientX - stageRect.left) / stageRect.width;
+          activePortfolioRow = activeRow;
+          portfolioPointerRatio = Math.max(-1, Math.min(1, (cursorX - 0.5) * 2));
+          if (!portfolioRaf) portfolioRaf = requestAnimationFrame(animatePortfolioCursorBrowse);
+        }, { passive: true });
         portfolioStage.addEventListener('mouseleave', () => {
+          stopPortfolioCursorBrowse();
           portfolioStage.classList.remove('has-focused-video');
           embeddedCards.forEach((card) => {
             card.classList.remove('is-active-video');
