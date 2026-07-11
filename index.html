@@ -1513,6 +1513,40 @@ body.contact-modal-open .contact-modal{
   height:46px!important;
   z-index:5!important;
 }
+
+/* Mobile-only: disable splash mask and restore normal pointer behavior. */
+@media (hover: none), (pointer: coarse), (max-width: 768px){
+  #swirl-canvas,
+  .splash-canvas,
+  .cursor-wrapper,
+  .cursor-element{
+    display:none!important;
+    opacity:0!important;
+    visibility:hidden!important;
+  }
+  html,
+  body,
+  body *,
+  body a,
+  body button{
+    cursor:auto!important;
+  }
+}
+html.mobile-no-splash #swirl-canvas,
+html.mobile-no-splash .splash-canvas,
+html.mobile-no-splash .cursor-wrapper,
+html.mobile-no-splash .cursor-element{
+  display:none!important;
+  opacity:0!important;
+  visibility:hidden!important;
+}
+html.mobile-no-splash,
+html.mobile-no-splash body,
+html.mobile-no-splash body *,
+html.mobile-no-splash body a,
+html.mobile-no-splash body button{
+  cursor:auto!important;
+}
 </style>
 </head>
 <body>
